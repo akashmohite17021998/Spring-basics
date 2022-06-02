@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+           
+           <!-- cfg dependent classes -->
+           <bean id="dtdc" class="com.nt.comp.DTDC" lazy-init="true"/>	<!-- lazy-init="true" for applicationcontext lazy instantiation for singleton scope of spring bean-->
+           <bean id="bDart" class="com.nt.comp.BlueDart"/>
+           
+           <bean id="fpkt" class="com.nt.comp.Flipkart" scope="singleton">
+           <property name="courior" ref="bDart"/>
+           </bean>
+           
+           
+           <!-- <bean id="p1" class="com.nt.singleton.Printer" factory-method="getInstance" scope="prototype"/>
+           <bean id="p2" class="com.nt.singleton.Printer" factory-method="getInstance" scope="prototype"/>-->
+           
+           <bean id="p1" class="com.nt.singleton.Printer" scope="singleton"/>
+           <bean id="p2" class="com.nt.singleton.Printer" scope="singleton"/>
+           
+           <!-- <bean id="p1" class="com.nt.singleton.Printer" factory-method="getInstance"/>
+           <bean id="p2" class="com.nt.singleton.Printer" factory-method="getInstance"/> -->
+           
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+           
+           <!-- spring bean cfg -->
+           <!-- dependent class cfg as spring bean -->
+           <bean id="dt"  class = "java.util.Date"/>
+           
+           <bean id="dt1"  class = "java.util.Date">
+           
+           <property name="year" value="120"/>	<!-- adds 1900 and gives 2020(setter injection) -->
+           <property name="month" value="8"/>
+           <property name="date" value="30"/>
+           
+           </bean>
+           
+           <!-- target class cfg as spring bean -->
+           <bean id="wmg" class = "com.nt.beans.WishMessageGenerator">
+           <constructor-arg name = "date" ref="dt"/> <!-- property tag for setter injection -->
+           <property name="date" ref="dt1"></property>
+           </bean>
+           
+</beans>
